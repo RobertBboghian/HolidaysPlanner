@@ -1,6 +1,15 @@
 const { gql } = require('apollo-server-koa')
 
 const userDefs = gql`
+  type UserInfo {
+    id: Int!
+    isAdmin: Boolean
+  }
+
+  extend type Query {
+    userData: UserInfo!
+  }
+
   extend type Mutation {
     authenticateUser(userName: String!, password: String!): Boolean!
   }

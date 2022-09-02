@@ -1,7 +1,12 @@
 const { topics, pubSub } = require('../../pubSub')
 
 const userResolvers = {
-  Query: {},
+  Query: {
+    userData: async (_, __, { dataSources }, _info) => {
+      const data = await dataSources.userApi.userData()
+      return data
+    }
+  },
   Mutation: {
     authenticateUser: async (_, { userName, password }, { dataSources }, _info) => {
       const data = await dataSources.userApi.authenticateUser(userName, password)

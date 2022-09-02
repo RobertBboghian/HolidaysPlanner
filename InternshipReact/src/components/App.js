@@ -16,6 +16,7 @@ import AppRoutes from 'routes/AppRoutes'
 import { ToastContainer, CheckInternetConnection } from '@bit/totalsoft_oss.react-mui.kit.core'
 import LoginPage from './login/LoginPage'
 import useToken from './login/UseToken'
+import UserDataProvider from 'providers/UserDataProvider'
 
 const useStyles = makeStyles(appStyle)
 const isWeb = () => window.matchMedia('(min-width: 480px)')?.matches
@@ -78,6 +79,7 @@ function App(props) {
       </div>
       <ToastContainer />
       <CheckInternetConnection />
+      <UserDataProvider />
     </div>
   )
 }
